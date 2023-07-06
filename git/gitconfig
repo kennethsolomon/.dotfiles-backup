@@ -56,7 +56,7 @@
 [color]
     ui = auto
 [commit]
-    gpgsign = true
+	gpgsign = true
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
@@ -91,3 +91,6 @@
 [user]
 	email = mr.kennethsolomon@gmail.com
 	name = Kenneth Solomon
+	signingkey = 44AE23DAECB23F9C8702A0F7B2AC6F9ABA19FBE8
+[gpg]
+	program = /opt/homebrew/bin/gpg

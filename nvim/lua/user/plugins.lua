@@ -306,6 +306,8 @@ use({
   end,
 })
 
+use "sindrets/diffview.nvim" 
+
 -- Experimental
 
 use({
