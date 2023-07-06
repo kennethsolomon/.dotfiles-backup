@@ -313,6 +313,23 @@ use({
   end,
 })
 
+use({
+  'NeogitOrg/neogit',
+  config = function()
+    vim.keymap.set('n', '<leader>;gg', ':Neogit<CR>')
+    vim.keymap.set('n', '<leader>;gd', ':DiffviewOpen<CR>')
+    vim.keymap.set('n', '<leader>;gD', ':DiffviewOpen master<CR>')
+    vim.keymap.set('n', '<leader>;gp', ':Neogit push<CR>')
+    require('neogit').setup({
+        disable_commit_confirmation = true,
+        integrations = {
+          diffview = true
+        },
+    })
+  end,
+})
+
+
 -- Experimental
 
 use({
