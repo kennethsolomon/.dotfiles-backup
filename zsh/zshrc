@@ -58,7 +58,7 @@ path=(
 
 setopt auto_cd
 cdpath=(
-    $HOME/Code
+    $HOME/Projects
 )
 
 zstyle ':completion:*' group-name ''
