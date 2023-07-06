@@ -306,7 +306,12 @@ use({
   end,
 })
 
-use "sindrets/diffview.nvim" 
+use({
+  'sindrets/diffview.nvim',
+  config = function()
+    require('user.plugins.diffview')
+  end,
+})
 
 -- Experimental
 
