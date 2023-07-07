@@ -27,6 +27,7 @@ db.setup({
         },
         {
           icon = ' ',
+          icon_hl = '@variable',
           desc = 'Find Word',
           group = 'Label',
           action = 'Telescope live_grep',
