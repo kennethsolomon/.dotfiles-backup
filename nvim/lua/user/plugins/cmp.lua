@@ -50,11 +50,14 @@ cmp.setup({
       -- behavior = cmp.ConfirmBehavior.Replace,
       -- select = false,
     end, { 'i', 's' }),
+
     ['<Tab>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(1) then
         luasnip.jump(1)
       elseif cmp.visible() then
         cmp.select_next_item()
+      elseif vim.b._copilot_suggestion ~= nil then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes(vim.fn['copilot#Accept'](), true, true, true), '')
       elseif has_words_before() then
         cmp.complete()
       else
