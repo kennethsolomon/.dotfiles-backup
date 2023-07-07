@@ -1,23 +1,69 @@
 local db = require('dashboard')
 
-db.custom_header = {
-  '',
-  '',
-  '  ⢸⣦⡈⠻⣿⣿⣿⣶⣄',
-  '    ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣷⣄',
-  '⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄',
-  '  ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄',
-  '',
-}
+-- Hyper Setup
+db.setup({
+    theme = 'hyper',
+    config = {
+      week_header = {
+        enable = true,
+      },
+      shortcut = {
+        -- { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+        {
+          icon = ' ',
+          icon_hl = '@variable',
+          desc = 'Files',
+          group = 'Label',
+          action = 'Telescope find_files',
+          key = 'f',
+        },
+        {
+          icon = ' ',
+          icon_hl = '@variable',
+          desc = 'New file',
+          group = 'Label',
+          action = 'enew',
+          key = 'n',
+        },
+        {
+          icon = ' ',
+          desc = 'Find Word',
+          group = 'Label',
+          action = 'Telescope live_grep',
+          key = 'SPC g',
+        },
+        -- {
+        --   desc = ' dotfiles',
+        --   group = 'Number',
+        --   action = 'Telescope dotfiles',
+        --   key = 'd',
+        -- },
+      },
+    },
+  })
 
-db.custom_center = {
-  { icon = '  ', desc = 'New file                       ', action = 'enew' },
-  { icon = '  ', shortcut = 'SPC f', desc = 'Find file                 ', action = 'Telescope find_files' },
-  { icon = '  ', shortcut = 'SPC h', desc = 'Recent files              ', action = 'Telescope oldfiles' },
-  { icon = '  ', shortcut = 'SPC g', desc = 'Find Word                 ', action = 'Telescope live_grep' },
-}
-
-db.custom_footer = { '' }
+-- Doom Setup
+-- db.setup({
+--     theme = 'doom',
+--     config = {
+--       header = {
+--         '',
+--         '',
+--         '  ⢸⣦⡈⠻⣿⣿⣿⣶⣄',
+--         '    ⢸⣿⣿⣦⡈⠻⣿⣿⣿⣷⣄',
+--         '⣀⣀⣀⣀⣀⣀⣼⣿⣿⣿⣿ ⠈⠻⣿⣿⣿⣷⣄',
+--         '  ⠈⠻⣿⣿⣿⣿⣿⡿⠿⠛⠁   ⠈⠻⢿⣿⣿⣷⣄',
+--         '',
+--       },
+--       center = {
+--         { icon = '  ', desc = 'New file                       ', action = 'enew' },
+--         { icon = '  ', shortcut = 'SPC f', desc = 'Find file                 ', action = 'Telescope find_files' },
+--         { icon = '  ', shortcut = 'SPC h', desc = 'Recent files              ', action = 'Telescope oldfiles' },
+--         { icon = '  ', shortcut = 'SPC g', desc = 'Find Word                 ', action = 'Telescope live_grep' },
+--       },
+--       footer = { '' }
+--     }
+--   })
 
 vim.cmd([[
   augroup DashboardHighlights

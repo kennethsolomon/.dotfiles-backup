@@ -351,7 +351,8 @@ use({
   'glepnir/dashboard-nvim',
   config = function()
     require('user/plugins/dashboard')
-  end
+    end,
+    requires = 'nvim-tree/nvim-web-devicons',
 })
 
 use({
