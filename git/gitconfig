@@ -40,6 +40,7 @@
     lo = log --oneline
     lp = log --patch
     lt = log --topo-order
+    lr = log --reverse
 
     o = checkout
     ob = checkout -b
