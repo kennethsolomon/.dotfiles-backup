@@ -1,2 +1,3 @@
 # dotfiles
-Home sweet home
+
+Don't use experimental dotfiles
