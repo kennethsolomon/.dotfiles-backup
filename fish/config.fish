@@ -33,7 +33,6 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias dockel "docker-compose exec app php artisan"
 alias docker-refresh "docker-compose build && docker-compose up -d"
 
-
 function nvm
    bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
 end
