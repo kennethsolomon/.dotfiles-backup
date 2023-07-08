@@ -137,3 +137,5 @@ export NVM_DIR="$HOME/.nvm"
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
     ~/.dotfiles/scripts/login.sh
 fi
+
+fish
