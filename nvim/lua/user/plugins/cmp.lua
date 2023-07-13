@@ -51,7 +51,7 @@ cmp.setup({
       -- select = false,
     end, { 'i', 's' }),
 
-    ['<Tab><Tab>'] = cmp.mapping(function(fallback)
+    ['<Leader><Tab>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(1) then
         luasnip.jump(1)
       elseif cmp.visible() then
