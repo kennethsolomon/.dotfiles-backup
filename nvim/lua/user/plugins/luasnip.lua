@@ -15,6 +15,8 @@ ls.add_snippets('php', {
   ls.parser.parse_snippet('prof', 'protected function $1($2): $3\n{\n    $0\n}'),
   ls.parser.parse_snippet('testt', 'public function test_$1()\n{\n    $0\n}'),
   ls.parser.parse_snippet('testa', '/** @test */\npublic function $1()\n{\n    $0\n}'),
+  ls.parser.parse_snippet('wroutegc', '/** @Web Route Closure GET */\nRoute::get(\'$1\', function () {\n    $0\n});'),
+  ls.parser.parse_snippet('wroutepc', '/** @Web Route Closure POST */\nRoute::post(\'$1\', function (Request $request) {\n    $0\n});'),
 })
 
 ls.add_snippets('typescript', {
