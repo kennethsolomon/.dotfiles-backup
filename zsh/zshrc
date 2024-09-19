@@ -58,7 +58,7 @@ path=(
 
 setopt auto_cd
 cdpath=(
-    $HOME/Projects
+    $HOME/Herd
 )
 
 zstyle ':completion:*' group-name ''
@@ -79,6 +79,7 @@ unsetopt sharehistory
 # Aliases
 #--------------------------------------------------------------------------
 
+alias salias="source ~/.zshrc"
 alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
@@ -87,23 +88,55 @@ alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -p
 alias sail='[ -f sail ] && sail || vendor/bin/sail'
 
 # Laravel
-alias a="artisan"
-alias tinker="artisan tinker"
-alias serve="artisan serve"
-alias mfs="artisan migrate:fresh --seed"
+alias a="php artisan"
+alias tinker="php artisan tinker"
+alias serve="php artisan serve"
+alias mfs="php artisan migrate:fresh --seed"
+alias sa='./vendor/bin/sail artisan'
 
 # Git
 alias g="git"
 alias gs="git s"
 alias nah="git reset --hard;git clean -df"
-alias co="git checkout"
 alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+alias gpsh="git push"
+alias gpo="git pull origin"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
+alias gpsht="git push origin tag"
+alias gt="git tag"
 
 # Docker
 alias d="docker"
 alias dc="docker compose"
 
-open () {
+# Tmux
+alias term="tmux split-window -h && tmux split-window -v"
+alias ide="tmux split-window -v -p 30 && tmux split-window -h -p 66 && tmux split-window -h -p 50"
+
+# Configuration
+alias fishedit="vim ~/.config/fish/"
+alias vimedit="vim ~/.vimrc"
+alias zshrcedit="vim ~/.zshrc"
+alias ideavimedit="vim ~/.ideavimrc"
+
+# Servers
+alias cwprod="ssh -L 3361:172.105.184.81:3306 forge@172.105.184.81"
+alias orthoprod="ssh -L 3361:194.195.254.186:3306 forge@194.195.254.186"
+alias eqprod="ssh -L 3362:172.105.171.241:3306 forge@172.105.171.241"
+alias cofeprod="ssh -L 3346:194.195.251.203:3306 forge@194.195.251.203"
+alias speedy="ssh -L 3345:172.105.185.234:3306 forge@172.105.185.234"
+
+gsa() {
+    git stash apply stash^{/$1}
+}
+
+gsp() {
+    git stash push -m "$1"
+}
+
+open() {
     xdg-open $* > /dev/null 2>&1
 }
 
@@ -138,4 +171,14 @@ if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
     ~/.dotfiles/scripts/login.sh
 fi
 
-fish
+
+# Herd injected PHP binary.
+export PATH="/Users/kennethsolomon/Library/Application Support/Herd/bin/":$PATH
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/kennethsolomon/Library/Application Support/Herd/config/php/82/"
+
+# Herd injected PHP 7.4 configuration.
+export HERD_PHP_74_INI_SCAN_DIR="/Users/kennethsolomon/Library/Application Support/Herd/config/php/74/"
+
+tmux

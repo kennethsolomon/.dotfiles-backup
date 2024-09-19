@@ -49,12 +49,12 @@ use('nelstrom/vim-visual-star-search')
 
 -- use { 'posva/vim-vue' }
 --
-use({
-  'github/copilot.vim',
+-- use({
+  -- 'github/copilot.vim',
   -- config = function()
   --   vim.api.nvim_set_keymap('i', '<C-/>', 'copilot#Accept(“<CR>”)', {expr=true, silent=true})
   -- end,
-})
+-- })
 
 use({
   'tpope/vim-projectionist',
