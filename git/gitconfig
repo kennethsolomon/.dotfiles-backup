@@ -40,7 +40,8 @@
     lo = log --oneline
     lp = log --patch
     lt = log --topo-order
-    lr = log --reverse
+    ollr = log --reverse --oneline -n 10
+    lr = log --reverse -n 10
 
     o = checkout
     ob = checkout -b
@@ -95,3 +96,5 @@
 	signingkey = 44AE23DAECB23F9C8702A0F7B2AC6F9ABA19FBE8
 [gpg]
 	program = /opt/homebrew/bin/gpg
+[credential]
+	useHttpPath = true

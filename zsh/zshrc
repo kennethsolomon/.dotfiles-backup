@@ -128,6 +128,10 @@ alias eqprod="ssh -L 3362:172.105.171.241:3306 forge@172.105.171.241"
 alias cofeprod="ssh -L 3346:194.195.251.203:3306 forge@194.195.251.203"
 alias speedy="ssh -L 3345:172.105.185.234:3306 forge@172.105.185.234"
 
+gspop() {
+    git stash pop stash^{/$1}
+}
+
 gsa() {
     git stash apply stash^{/$1}
 }
@@ -135,6 +139,15 @@ gsa() {
 gsp() {
     git stash push -m "$1"
 }
+
+grsh() {
+    git reset --soft HEAD~$1
+}
+
+gets3filesdev() {
+    aws --region ap-southeast-2 s3 ls --recursive s3://phcollabs3/$1 --recursive
+}
+
 
 open() {
     xdg-open $* > /dev/null 2>&1
@@ -182,3 +195,6 @@ export HERD_PHP_82_INI_SCAN_DIR="/Users/kennethsolomon/Library/Application Suppo
 export HERD_PHP_74_INI_SCAN_DIR="/Users/kennethsolomon/Library/Application Support/Herd/config/php/74/"
 
 tmux
+
+source $HOME/.aliases
+alias aliasedit="nvim ~/.aliases"
