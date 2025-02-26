@@ -106,6 +106,7 @@ alias gcp="git cherry-pick"
 alias gcpc="git cherry-pick --continue"
 alias gpsht="git push origin tag"
 alias gt="git tag"
+alias rhard="git reset --hard"
 
 # Docker
 alias d="docker"
@@ -128,25 +129,38 @@ alias eqprod="ssh -L 3362:172.105.171.241:3306 forge@172.105.171.241"
 alias cofeprod="ssh -L 3346:194.195.251.203:3306 forge@194.195.251.203"
 alias speedy="ssh -L 3345:172.105.185.234:3306 forge@172.105.185.234"
 
-gspop() {
-    git stash pop stash^{/$1}
+gsdrop() {
+    git stash drop stash@{/$1}
 }
 
-gsa() {
-    git stash apply stash^{/$1}
+gsapply() {
+    git stash apply stash@{/$1}
 }
 
-gsp() {
+gspush() {
     git stash push -m "$1"
 }
 
-grsh() {
+gslist() {
+    git stash list
+}
+
+grsoft() {
     git reset --soft HEAD~$1
+}
+
+grhard() {
+    git reset --hard HEAD~$1
 }
 
 gets3filesdev() {
     aws --region ap-southeast-2 s3 ls --recursive s3://phcollabs3/$1 --recursive
 }
+
+glfind() {
+    git log --grep="$1"
+}
+
 
 
 open() {
@@ -198,3 +212,10 @@ tmux
 
 source $HOME/.aliases
 alias aliasedit="nvim ~/.aliases"
+
+fzf-history-widget() {
+  BUFFER=$(history -r 1 | fzf --height 40% --layout=reverse --border)
+  CURSOR=$#BUFFER
+}
+zle -N fzf-history-widget
+bindkey '^r' fzf-history-widget
