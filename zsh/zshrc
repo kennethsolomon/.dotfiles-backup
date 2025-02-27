@@ -214,8 +214,12 @@ source $HOME/.aliases
 alias aliasedit="nvim ~/.aliases"
 
 fzf-history-widget() {
-  BUFFER=$(history -r 1 | fzf --height 40% --layout=reverse --border)
+local selected_command=$(fc -ln 1 | awk '{lines[NR] = $0} END {for (i=NR; i>0; i--) print lines[i]}' | fzf --height 40% --layout=reverse --border --query="$LBUFFER")
+
+if [[ -n "$selected_command" ]]; then
+  BUFFER="$selected_command"
   CURSOR=$#BUFFER
+fi
 }
 zle -N fzf-history-widget
 bindkey '^r' fzf-history-widget
