@@ -232,7 +232,7 @@
                     "value": 1
                   }
                 ],
-                "description": "Open Obsidian",
+                "description": "Open Finder",
                 "from": {
                   "key_code": "j",
                   "modifiers": {
@@ -241,7 +241,29 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Obsidian.app'"
+                    "shell_command": "open -a 'Finder.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sublayer_e",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "Open Spotify",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Spotify.app'"
                   }
                 ],
                 "type": "basic"
@@ -274,7 +296,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "hyper_sublayer_e",
+                      "name": "hyper_sublayer_w",
                       "value": 1
                     }
                   }
@@ -282,7 +304,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "hyper_sublayer_e",
+                      "name": "hyper_sublayer_w",
                       "value": 0
                     }
                   }
@@ -292,14 +314,58 @@
               {
                 "conditions": [
                   {
-                    "name": "hyper_sublayer_e",
+                    "name": "hyper_sublayer_w",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "Open Arc",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Arc.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sublayer_w",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "Open Cursor",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Cursor.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sublayer_w",
                     "type": "variable_if",
                     "value": 1
                   }
                 ],
                 "description": "Open Obsidian",
                 "from": {
-                  "key_code": "j",
+                  "key_code": "l",
                   "modifiers": {
                     "optional": ["any"]
                   }
